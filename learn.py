@@ -27,3 +27,4 @@ class Articles(Base):
 
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
+
