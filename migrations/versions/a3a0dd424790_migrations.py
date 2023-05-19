@@ -1,8 +1,8 @@
 """migrations
 
-Revision ID: ad650db3ed72
+Revision ID: a3a0dd424790
 Revises: 
-Create Date: 2023-05-18 00:04:38.270883
+Create Date: 2023-05-19 12:28:00.862938
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'ad650db3ed72'
+revision = 'a3a0dd424790'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -45,11 +45,11 @@ def upgrade() -> None:
     op.create_table('grades',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('subject_id', sa.Integer(), nullable=True),
-    sa.Column('teacher_id', sa.Integer(), nullable=True),
+    sa.Column('student_id', sa.Integer(), nullable=True),
     sa.Column('grade', sa.Integer(), nullable=True),
     sa.Column('date', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['student_id'], ['students.id'], ),
     sa.ForeignKeyConstraint(['subject_id'], ['subjects.id'], ),
-    sa.ForeignKeyConstraint(['teacher_id'], ['teachers.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

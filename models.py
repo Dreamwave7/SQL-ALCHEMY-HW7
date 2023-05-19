@@ -39,6 +39,6 @@ class Grades(Base):
     __tablename__ = "grades"
     id = Column(Integer(), primary_key=True, autoincrement=True)
     subject_id = Column(Integer(),ForeignKey("subjects.id"))
-    teacher_id = Column(Integer(), ForeignKey("teachers.id"))
+    student_id = Column(Integer(),ForeignKey("students.id"))
     grade = Column(Integer())
     date = Column(DateTime())
